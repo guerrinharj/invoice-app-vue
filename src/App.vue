@@ -1,12 +1,25 @@
 <template>
-<div> oi </div>
+
+<the-sidebar> </the-sidebar>
+
 </template>
 
 <script>
+
+import TheSidebar from './components/TheSidebar.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    TheSidebar
+  }
 }
 </script>
 
 <style>
+
+body {
+  margin: 0;
+}
+
 </style>
