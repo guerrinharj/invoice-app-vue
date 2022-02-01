@@ -1,8 +1,16 @@
 <template>
   <section>
-    <div class="logo-outer">
-      <img :src="logo">
-      <div class="logo-inner"> </div>
+    <div class="logo-area">
+      <div class="logo-outer">
+        <img :src="logo">
+        <div class="logo-inner"> </div>
+      </div>
+    </div>
+    <div class="switcher-area">
+      <p>  <img :src="moonswitcher"> </p>
+    </div>
+    <div class="avatar-area">
+      <img :src="avatar">
     </div>
   </section>
 </template>
@@ -13,6 +21,12 @@ export default {
   computed: {
     logo() {
       return this.$store.getters.logo
+    },
+    moonswitcher(){
+      return this.$store.getters.moonswitcher
+    },
+    avatar(){
+      return this.$store.getters.avatar
     }
   }
 }
@@ -27,6 +41,10 @@ section {
   position: fixed;
   width: 7vw;
   border-radius: 70px 75px 45px 0px
+}
+
+.logo-area {
+  height: 70%;
 }
 
 .logo-outer {
@@ -50,6 +68,23 @@ section {
   position: absolute;
   top: 30%;
   width: 40px;
+}
+
+.switcher-area, .avatar-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.switcher-area {
+  border-bottom: solid 1px grey;
+}
+
+.avatar-area img {
+  width: 30%;
+  border-radius: 20px;
+  margin: 20px 0;
 }
 
 </style>
