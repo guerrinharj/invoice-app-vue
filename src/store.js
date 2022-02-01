@@ -20,12 +20,16 @@ const store = createStore({
     },
     avatar(state) {
       return state.avatar
+    },
+    invoices(state) {
+      return state.invoices
     }
   },
   mutations: {
     fetchTheInvoices(state) {
       axios.get("https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices").then(res => {
         state.invoices = res.data
+        console.log(state.invoices)
       }).catch(error => {
         console.log(error)
       })
