@@ -1,5 +1,11 @@
 <template>
   <section>
+
+  <div>
+    <h1> Invoices </h1>
+    <p> There are total {{ invoices.length }} invoices  </p>
+  </div>
+
   <ul>
     <li v-for="invoice in invoices" :key="invoice">
     <list-item
