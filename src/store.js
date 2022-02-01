@@ -7,6 +7,7 @@ const store = createStore({
       logo: require('@/assets/logo.svg'),
       moonswitcher: require('@/assets/icon-moon.svg'),
       avatar: require('@/assets/image-avatar.jpg'),
+      invoices: []
     }
   },
   getters: {
@@ -21,6 +22,9 @@ const store = createStore({
     }
   },
   mutations: {
+    fetchTheInvoices(state) {
+
+    }
 
   },
   actions: {
