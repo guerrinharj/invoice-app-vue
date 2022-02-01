@@ -35,15 +35,21 @@ section {
   align-items: flex-end;
   background-color: #7C5DF9;
   position: relative;
-  padding:  30px 0 0 0;
+  border-radius: 0px 25px 20px 0px;
+  padding:  50px 0 0 0;
 }
 
 .logo-inner {
+  width: 100%;
   background-color: #9376FF;
-  padding: 20px;
+  padding: 20px 10px;
+  border-radius: 40px 0 20px 0 ;
 }
 
 .logo-outer img {
+  position: absolute;
+  top: 30%;
+  width: 40px;
 }
 
 </style>
