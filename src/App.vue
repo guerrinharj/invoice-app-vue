@@ -18,6 +18,9 @@ export default {
   components: {
     TheSidebar,
     TheList
+  },
+  mounted() {
+    return this.$store.dispatch('fetchingInvoices')
   }
 }
 </script>

@@ -9,7 +9,12 @@
 import ListItem from './ListItem.vue'
 
   export default {
-    components: { ListItem }
+    components: { ListItem },
+    computed: {
+      invoices() {
+        return this.$store.getters.invoices
+      }
+    }
   }
 
 </script>

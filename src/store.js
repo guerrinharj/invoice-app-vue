@@ -1,4 +1,5 @@
 //import axios from "axios";
+import axios from 'axios';
 import { createStore } from 'vuex';
 
 const store = createStore({
@@ -23,11 +24,19 @@ const store = createStore({
   },
   mutations: {
     fetchTheInvoices(state) {
-
+      axios.get("https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices").then(res => {
+        state.invoices = res.data
+      }).catch(error => {
+        console.log(error)
+      })
     }
 
   },
   actions: {
+
+    fetchingInvoices(context, payload) {
+      context.commit('fetchTheInvoices', payload)
+    }
 
   }
 })
