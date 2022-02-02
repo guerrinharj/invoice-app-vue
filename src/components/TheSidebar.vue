@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="switcher-area">
-      <p>  <img :src="moonswitcher"> </p>
+      <p @click="switchTheme">  <img :src="isSwitch ? sunswitcher : moonswitcher"> </p>
     </div>
     <div class="avatar-area">
       <img :src="avatar">
@@ -25,8 +25,19 @@ export default {
     moonswitcher(){
       return this.$store.getters.moonswitcher
     },
+    sunswitcher(){
+      return this.$store.getters.sunswitcher
+    },
+    isSwitch(){
+      return this.$store.getters.isSwitch
+    },
     avatar(){
       return this.$store.getters.avatar
+    }
+  },
+  methods: {
+    switchTheme() {
+      this.$store.dispatch('switchingThemes')
     }
   }
 }

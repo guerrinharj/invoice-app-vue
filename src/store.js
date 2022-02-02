@@ -7,6 +7,8 @@ const store = createStore({
     return {
       logo: require('@/assets/logo.svg'),
       moonswitcher: require('@/assets/icon-moon.svg'),
+      sunswitcher: require('@/assets/icon-sun.svg'),
+      isSwitch: false,
       avatar: require('@/assets/image-avatar.jpg'),
       plus: require('@/assets/icon-plus.svg'),
       arrowdown: require('@/assets/icon-arrow-down.svg'),
@@ -19,6 +21,12 @@ const store = createStore({
     },
     moonswitcher(state) {
       return state.moonswitcher
+    },
+    sunswitcher(state) {
+      return state.sunswitcher
+    },
+    isSwitch(state) {
+      return state.isSwitch
     },
     avatar(state) {
       return state.avatar
@@ -41,6 +49,9 @@ const store = createStore({
       }).catch(error => {
         console.log(error)
       })
+    },
+    switchTheTheme(state) {
+      state.isSwitch = !state.isSwitch
     }
 
   },
@@ -48,7 +59,11 @@ const store = createStore({
 
     fetchingInvoices(context, payload) {
       context.commit('fetchTheInvoices', payload)
-    }
+    },
+
+    switchingThemes(context, payload) {
+      context.commit('switchTheTheme', payload)
+    },
 
   }
 })

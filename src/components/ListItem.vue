@@ -26,7 +26,7 @@ export default {
     align-items: center;
     background-color: white;
     font-size: 0.8rem;
-    padding: 30px;
+    padding: 20px;
   }
 
   .list-item div {
@@ -62,7 +62,7 @@ export default {
   }
 
   .li-paid {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(0, 255, 0, 0.1);
     color: #32D69F
   }
 
