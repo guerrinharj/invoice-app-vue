@@ -95,7 +95,7 @@ ul, li {
 #new-invoice {
   background-color:  #7C5DF8;
   color: white;
-  padding: 0.4rem 0.5rem;
+  padding: 0.5rem 0.6rem;
   border-radius: 1rem;
   margin-left: 40px;
   display: flex;
@@ -108,12 +108,17 @@ ul, li {
   border-radius: 10rem;
   color: #9376FF;
   text-align: center;
-  padding: 10px 12px;
+  padding: 8px 10px;
   font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+}
+
+li {
+  margin: 20px 0;
+  border-radius: 20px;
 }
 
 </style>
