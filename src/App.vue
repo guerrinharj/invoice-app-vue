@@ -1,11 +1,9 @@
 <template>
 
-<the-sidebar> </the-sidebar>
-
+    <the-sidebar> </the-sidebar>
 <main>
-  <the-list> </the-list>
+    <the-list> </the-list>
 </main>
-
 </template>
 
 <script>
@@ -34,14 +32,17 @@ body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: -1px;
   margin: 0;
-  background-color: #F8F8FB
+  padding: 0;
+  background-color: #F8F8FB;
+  overflow-x: hidden;
 }
 
 main {
   display: flex;
+  width: 100vw;
   justify-content: center;
   align-items: center;
-  padding: 40px;
 }
+
 
 </style>

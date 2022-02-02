@@ -1,6 +1,5 @@
 <template>
   <section>
-
   <div class="menu-area">
     <div>
       <h1> Invoices </h1>
@@ -50,7 +49,7 @@ import ListItem from './ListItem.vue'
 <style scoped>
 
 section {
-  margin: 40px 0
+  margin: 80px 0
 }
 
 ul, li {

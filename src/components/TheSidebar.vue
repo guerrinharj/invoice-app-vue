@@ -37,9 +37,8 @@ export default {
 
 section {
   background-color: #373B53;
-  height: 100vh;
+  height: 100%;
   position: fixed;
-  width: 7vw;
   border-radius: 70px 75px 45px 0px
 }
 
