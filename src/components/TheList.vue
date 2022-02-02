@@ -7,7 +7,7 @@
       <p> There are total {{ invoices.length }} invoices  </p>
     </div>
     <div class="filter-add-area">
-      <div id="filter-status"> Filter by status </div>
+      <div id="filter-status"> <div>Filter by status</div> <div id="arrowdown"><img :src="arrowdown"></div> </div>
       <div id="new-invoice"> <div> <img :src="plus"></div> <div>New Invoice</div> </div>
     </div>
   </div>
@@ -38,6 +38,9 @@ import ListItem from './ListItem.vue'
         },
         plus() {
           return this.$store.getters.plus
+        },
+        arrowdown() {
+          return this.$store.getters.arrowdown
         }
   }
 }
@@ -77,6 +80,16 @@ ul, li {
 .filter-add-area {
   font-size: 0.8rem;
   font-weight: 700
+}
+
+#filter-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#arrowdown {
+  margin-left: 9px;
 }
 
 #new-invoice {

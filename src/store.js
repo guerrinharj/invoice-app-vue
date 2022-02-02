@@ -9,6 +9,7 @@ const store = createStore({
       moonswitcher: require('@/assets/icon-moon.svg'),
       avatar: require('@/assets/image-avatar.jpg'),
       plus: require('@/assets/icon-plus.svg'),
+      arrowdown: require('@/assets/icon-arrow-down.svg'),
       invoices: []
     }
   },
@@ -24,6 +25,9 @@ const store = createStore({
     },
     plus(state) {
       return state.plus
+    },
+    arrowdown(state) {
+      return state.arrowdown
     },
     invoices(state) {
       return state.invoices
