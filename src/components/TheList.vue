@@ -1,9 +1,15 @@
 <template>
   <section>
 
-  <div>
-    <h1> Invoices </h1>
-    <p> There are total {{ invoices.length }} invoices  </p>
+  <div class="menu-area">
+    <div>
+      <h1> Invoices </h1>
+      <p> There are total {{ invoices.length }} invoices  </p>
+    </div>
+    <div class="filter-add-area">
+      <div id="filter-status"> Filter by status </div>
+      <div id="new-invoice"> <div> <img :src="plus"></div> <div>New Invoice</div> </div>
+    </div>
   </div>
 
   <ul>
@@ -28,7 +34,10 @@ import ListItem from './ListItem.vue'
     components: { ListItem },
     computed: {
         invoices() {
-            return this.$store.getters.invoices
+          return this.$store.getters.invoices
+        },
+        plus() {
+          return this.$store.getters.plus
         }
   }
 }
@@ -36,4 +45,62 @@ import ListItem from './ListItem.vue'
 </script>
 
 <style scoped>
+
+section {
+  margin: 40px 0
+}
+
+ul, li {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-area, .filter-add-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-area h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.menu-area p {
+  font-size: 0.8rem;
+  opacity: 0.4;
+  margin: 10px 0;
+}
+
+.filter-add-area {
+  font-size: 0.8rem;
+  font-weight: 700
+}
+
+#new-invoice {
+  background-color:  #7C5DF8;
+  color: white;
+  padding: 0.4rem 0.5rem;
+  border-radius: 1rem;
+  margin-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#new-invoice div:first-child {
+  background-color:  white;
+  border-radius: 10rem;
+  color: #9376FF;
+  text-align: center;
+  padding: 10px 12px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
 </style>

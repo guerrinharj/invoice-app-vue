@@ -8,6 +8,7 @@ const store = createStore({
       logo: require('@/assets/logo.svg'),
       moonswitcher: require('@/assets/icon-moon.svg'),
       avatar: require('@/assets/image-avatar.jpg'),
+      plus: require('@/assets/icon-plus.svg'),
       invoices: []
     }
   },
@@ -20,6 +21,9 @@ const store = createStore({
     },
     avatar(state) {
       return state.avatar
+    },
+    plus(state) {
+      return state.plus
     },
     invoices(state) {
       return state.invoices

@@ -26,4 +26,8 @@ export default {
     align-items: center;
   }
 
+  .list-item div {
+    margin: 30px
+  }
+
 </style>

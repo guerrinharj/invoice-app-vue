@@ -27,7 +27,12 @@ export default {
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
+  font-family: 'Spartan', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -1px;
   margin: 0;
   background-color: #F8F8FB
 }
@@ -36,7 +41,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 </style>
