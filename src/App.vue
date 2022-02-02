@@ -1,9 +1,13 @@
 <template>
 
+<div class="page">
+  <div class="sidebar_container">
     <the-sidebar> </the-sidebar>
-<main>
+  </div>
+  <div class="list_container">
     <the-list> </the-list>
-</main>
+  </div>
+</div>
 </template>
 
 <script>
@@ -37,12 +41,20 @@ body {
   overflow-x: hidden;
 }
 
-main {
+.page {
   display: flex;
   width: 100vw;
-  justify-content: center;
-  align-items: center;
 }
 
+.sidebar_container {
+  width: 7%;
+}
+
+.list_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 93%;
+}
 
 </style>

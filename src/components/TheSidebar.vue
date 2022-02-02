@@ -38,8 +38,9 @@ export default {
 section {
   background-color: #373B53;
   height: 100%;
+  width: 7%;
   position: fixed;
-  border-radius: 70px 75px 45px 0px
+  border-radius: 00px 75px 45px 0px
 }
 
 .logo-area {
