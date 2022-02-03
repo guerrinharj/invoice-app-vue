@@ -12,7 +12,8 @@ const store = createStore({
       avatar: require('@/assets/image-avatar.jpg'),
       plus: require('@/assets/icon-plus.svg'),
       arrowdown: require('@/assets/icon-arrow-down.svg'),
-      invoices: []
+      invoices: [],
+      isMenuOpen: false
     }
   },
   getters: {
@@ -39,6 +40,9 @@ const store = createStore({
     },
     invoices(state) {
       return state.invoices
+    },
+    isMenuOpen(state) {
+      return state.isMenuOpen
     }
   },
   mutations: {
@@ -52,6 +56,9 @@ const store = createStore({
     },
     switchTheTheme(state) {
       state.isSwitch = !state.isSwitch
+    },
+    filterTheMenu(state) {
+      state.isMenuOpen = !state.isMenuOpen
     }
 
   },
@@ -64,6 +71,10 @@ const store = createStore({
     switchingThemes(context, payload) {
       context.commit('switchTheTheme', payload)
     },
+
+    filteringMenu(context, payload) {
+      context.commit('filterTheMenu', payload)
+    }
 
   }
 })

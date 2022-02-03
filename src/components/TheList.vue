@@ -6,13 +6,23 @@
       <p> There are total {{ invoices.length }} invoices  </p>
     </div>
     <div class="filter-add-area">
-      <div id="filter-status"> <div>Filter by status</div> <div id="arrowdown"><img :src="arrowdown"></div> </div>
+      <div id="filter-status" @click="filterMenu">
+       <div>Filter by status</div>
+       <div id="arrowdown"><img :src="arrowdown"></div>
+       <div v-if="isMenuOpen" class="filter-menu">
+          <ul>
+            <li> Paid </li>
+            <li> Pending </li>
+            <li> Draft </li>
+          </ul>
+       </div>
+      </div>
       <div id="new-invoice"> <div> <img :src="plus"></div> <div>New Invoice</div> </div>
     </div>
   </div>
 
-  <ul>
-    <li v-for="invoice in invoices" :key="invoice">
+  <ul class="invoice-list">
+    <a><li v-for="invoice in invoices" :key="invoice">
     <list-item
     :name="invoice.name"
     :code="invoice.code"
@@ -20,7 +30,7 @@
     :value="invoice.value"
     :paid="invoice.paid">
     </list-item>
-    </li>
+    </li></a>
   </ul>
   </section>
 </template>
@@ -40,6 +50,14 @@ import ListItem from './ListItem.vue'
         },
         arrowdown() {
           return this.$store.getters.arrowdown
+        },
+        isMenuOpen() {
+          return this.$store.getters.isMenuOpen
+        }
+  },
+      methods: {
+        filterMenu() {
+          this.$store.dispatch('filteringMenu')
         }
   }
 }
@@ -49,7 +67,7 @@ import ListItem from './ListItem.vue'
 <style scoped>
 
 section {
-  margin: 80px 0
+  margin: 40px 0
 }
 
 ul, li {
@@ -85,10 +103,25 @@ ul, li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 #arrowdown {
   margin-left: 9px;
+}
+
+.filter-menu {
+  position: absolute;
+  background-color: white;
+  top: 30px;
+  right: 2px;
+  padding: 15px 40px;
+  border-radius: 20px;
+  box-shadow: 5px 1px 20px #f2e0ff;
+}
+
+.filter-menu li {
+  margin: 15px 0;
 }
 
 #new-invoice {
@@ -115,9 +148,11 @@ ul, li {
   margin-right: 10px;
 }
 
-li {
+.invoice-list li {
   margin: 20px 0;
   border-radius: 20px;
 }
+
+
 
 </style>
