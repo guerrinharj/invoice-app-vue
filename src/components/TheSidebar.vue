@@ -48,7 +48,7 @@ export default {
 
 section {
   background-color: #373B53;
-  height: 100%;
+  height: 98%;
   width: 7%;
   position: fixed;
   border-radius: 00px 75px 45px 0px
@@ -89,6 +89,7 @@ section {
 }
 
 .switcher-area {
+  padding: 30px 0;
   border-bottom: solid 1px grey;
 }
 

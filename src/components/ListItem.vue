@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item" :class="isSwitch ? 'light-bg light-item' : 'dark-bg dark-item'">
+  <div class="list-item" :class="isSwitch ? 'dark-bg dark-item' : 'light-bg light-item' ">
     <div class="li-code"> <span class="hash">#</span>{{ code }} </div>
     <div class="li-payment"> <span class="li-color">Due {{ payment }}</span> </div>
     <div class="li-name"> <span class="li-color">{{ name }}</span> </div>

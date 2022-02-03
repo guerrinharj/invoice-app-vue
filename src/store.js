@@ -60,6 +60,11 @@ const store = createStore({
     },
     switchTheTheme(state) {
       state.isSwitch = !state.isSwitch
+      if (state.isSwitch == true) {
+        document.body.style.backgroundColor = "#141625"
+      } else {
+        document.body.style.backgroundColor = "#F8F8FB"
+      }
     },
     filterTheMenu(state) {
       state.isMenuOpen = !state.isMenuOpen

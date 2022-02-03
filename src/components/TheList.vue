@@ -9,7 +9,7 @@
       <div id="filter-status" @click="filterMenu">
        <div>Filter by status</div>
        <div id="arrowdown"><img :src="arrowdown"></div>
-       <div v-if="isMenuOpen" class="filter-menu" :class="isSwitch ? 'light-bg' : 'dark-bg' ">
+       <div v-if="isMenuOpen" class="filter-menu" :class="isSwitch ? 'dark-bg' : 'light-bg' ">
           <ul>
             <li v-for="status in invoicesStatus" :key="status" @click="filterList(status)"> {{ status }} </li>
           </ul>
@@ -124,8 +124,8 @@ ul, li {
 .filter-menu {
   position: absolute;
   top: 30px;
-  right: 2px;
-  padding: 15px 50px;
+  left: -40px;
+  padding: 15px 70px;
   border-radius: 10px;
   box-shadow: 2px 5px 10px #333333;
 }

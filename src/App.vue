@@ -1,6 +1,6 @@
 <template>
 
-<div class="page" :class="isSwitch ? 'light-bg' : 'dark-bg' ">
+<div class="page" :class="isSwitch ? 'dark-bg' : 'light-bg' ">
   <div class="sidebar_container">
     <the-sidebar> </the-sidebar>
   </div>
@@ -28,7 +28,13 @@ export default {
   },
   mounted() {
     return this.$store.dispatch('fetchingInvoices')
+  },
+  watch: {
+  // whenever active changes, this function will run
+  isSwitch() {
+    document.body.style.backgroundColor = this.isSwitch? 'dark-bg' : 'light-bg'
   }
+}
 }
 </script>
 
@@ -43,6 +49,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #F8F8FB;
 }
 
 .page {
