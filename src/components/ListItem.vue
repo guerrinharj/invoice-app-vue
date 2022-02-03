@@ -89,11 +89,15 @@ export default {
     color: #32D69F
   }
 
-  .li-pending {
+  .dark-item .li-pending {
      background-color: #2C2838;
      color: #FF8F00;
   }
 
+  .light-item .li-pending {
+    background-color: #FFF9F2;
+    color:  #FF8F00
+  }
 
 
 </style>
