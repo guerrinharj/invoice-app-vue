@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item">
+  <div class="list-item" :class="isSwitch ? 'light-bg light-item' : 'dark-bg dark-item'">
     <div class="li-code"> <span class="hash">#</span>{{ code }} </div>
     <div class="li-payment"> <span class="li-color">Due {{ payment }}</span> </div>
     <div class="li-name"> <span class="li-color">{{ name }}</span> </div>
@@ -12,7 +12,13 @@
 
 export default {
 
-  props: ["code", "name", "payment", "value", "paid"]
+  props: ["code", "name", "payment", "value", "paid"],
+
+  computed: {
+    isSwitch() {
+      return this.$store.getters.isSwitch
+    }
+  }
 
 }
 
@@ -25,8 +31,25 @@ export default {
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    border-radius: 10px;
     font-size: 0.8rem;
     padding: 20px;
+    transition: ease 0.3s;
+  }
+
+  .list-item:hover {
+    border: solid 1px #9376FF;
+    transition: ease 0.3s;
+  }
+
+  .light-item {
+    background-color: white;
+    border: solid 1px #F8F8FB;
+  }
+
+  .dark-item {
+    background-color: #373B53!important;
+    border: solid 1px #373B53;
   }
 
   .list-item div {
@@ -67,8 +90,10 @@ export default {
   }
 
   .li-pending {
-     background-color: #FFF9F2;
+     background-color: #2C2838;
      color: #FF8F00;
   }
+
+
 
 </style>

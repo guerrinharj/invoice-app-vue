@@ -112,7 +112,6 @@ ul, li {
 
 .filter-menu {
   position: absolute;
-  background-color: white;
   top: 30px;
   right: 2px;
   padding: 15px 40px;

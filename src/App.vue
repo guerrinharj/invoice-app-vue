@@ -1,6 +1,6 @@
 <template>
 
-<div class="page">
+<div class="page" :class="isSwitch ? 'light-bg' : 'dark-bg' ">
   <div class="sidebar_container">
     <the-sidebar> </the-sidebar>
   </div>
@@ -21,6 +21,11 @@ export default {
     TheSidebar,
     TheList
   },
+  computed: {
+    isSwitch() {
+      return this.$store.getters.isSwitch
+    }
+  },
   mounted() {
     return this.$store.dispatch('fetchingInvoices')
   }
@@ -37,13 +42,22 @@ body {
   letter-spacing: -1px;
   margin: 0;
   padding: 0;
-  background-color: #F8F8FB;
   overflow-x: hidden;
 }
 
 .page {
   display: flex;
   width: 100vw;
+}
+
+.light-bg {
+  background-color: #F8F8FB;
+  color: #0A0E16!important;
+}
+
+.dark-bg {
+  background-color: #141625!important;
+  color: #fff!important
 }
 
 .sidebar_container {
