@@ -63,8 +63,32 @@ const store = createStore({
     },
     filterTheMenu(state) {
       state.isMenuOpen = !state.isMenuOpen
-    }
+    },
+    filterTheList(state, payload) {
 
+      if (payload.item == "Paid") {
+      axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=true`).then(res => {
+        state.invoices = res.data
+        console.log(state.invoices)
+      }).catch(error => {
+        console.log(error)
+      })
+      } else if (payload.item == "Pending") {
+        axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=false`).then(res => {
+          state.invoices = res.data
+          console.log(state.invoices)
+        }).catch(error => {
+          console.log(error)
+        })
+      } else {
+        axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=nil`).then(res => {
+          state.invoices = res.data
+          console.log(state.invoices)
+        }).catch(error => {
+          console.log(error)
+        })
+      }
+  }
   },
   actions: {
 
@@ -78,6 +102,10 @@ const store = createStore({
 
     filteringMenu(context, payload) {
       context.commit('filterTheMenu', payload)
+    },
+
+    filteringList(context, payload) {
+      context.commit('filterTheList', payload)
     }
 
   }

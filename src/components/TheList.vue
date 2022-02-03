@@ -11,9 +11,7 @@
        <div id="arrowdown"><img :src="arrowdown"></div>
        <div v-if="isMenuOpen" class="filter-menu" :class="isSwitch ? 'light-bg' : 'dark-bg' ">
           <ul>
-            <li> Paid </li>
-            <li> Pending </li>
-            <li> Draft </li>
+            <li v-for="status in invoicesStatus" :key="status" @click="filterList(status)"> {{ status }} </li>
           </ul>
        </div>
       </div>
@@ -65,6 +63,11 @@ import ListItem from './ListItem.vue'
       methods: {
         filterMenu() {
           this.$store.dispatch('filteringMenu')
+        },
+        filterList(item) {
+          this.$store.dispatch('filteringList', {
+            item: item
+          })
         }
   }
 }
