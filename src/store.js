@@ -13,7 +13,8 @@ const store = createStore({
       plus: require('@/assets/icon-plus.svg'),
       arrowdown: require('@/assets/icon-arrow-down.svg'),
       invoices: [],
-      isMenuOpen: false
+      isMenuOpen: false,
+      invoicesStatus: ["Paid", "Pending", "Draft"]
     }
   },
   getters: {
@@ -40,6 +41,9 @@ const store = createStore({
     },
     invoices(state) {
       return state.invoices
+    },
+    invoicesStatus(state) {
+      return state.invoicesStatus
     },
     isMenuOpen(state) {
       return state.isMenuOpen

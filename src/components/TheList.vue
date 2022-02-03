@@ -9,7 +9,7 @@
       <div id="filter-status" @click="filterMenu">
        <div>Filter by status</div>
        <div id="arrowdown"><img :src="arrowdown"></div>
-       <div v-if="isMenuOpen" class="filter-menu">
+       <div v-if="isMenuOpen" class="filter-menu" :class="isSwitch ? 'light-bg' : 'dark-bg' ">
           <ul>
             <li> Paid </li>
             <li> Pending </li>
@@ -53,7 +53,14 @@ import ListItem from './ListItem.vue'
         },
         isMenuOpen() {
           return this.$store.getters.isMenuOpen
+        },
+        isSwitch() {
+          return this.$store.getters.isSwitch
+        },
+        invoicesStatus() {
+          return this.$store.getters.invoicesStatus
         }
+
   },
       methods: {
         filterMenu() {
@@ -67,7 +74,7 @@ import ListItem from './ListItem.vue'
 <style scoped>
 
 section {
-  margin: 40px 0
+  margin: 40px 0;
 }
 
 ul, li {
@@ -101,6 +108,7 @@ ul, li {
 
 #filter-status {
   display: flex;
+  background-color: inherit;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -114,9 +122,13 @@ ul, li {
   position: absolute;
   top: 30px;
   right: 2px;
-  padding: 15px 40px;
-  border-radius: 20px;
-  box-shadow: 5px 1px 20px #f2e0ff;
+  padding: 15px 50px;
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px #333333;
+}
+
+.filter-menu ul {
+  list-style-type: disc
 }
 
 .filter-menu li {
