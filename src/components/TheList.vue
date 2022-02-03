@@ -125,7 +125,7 @@ ul, li {
   position: absolute;
   top: 30px;
   left: -40px;
-  padding: 15px 70px;
+  padding: 15px 50px;
   border-radius: 10px;
   box-shadow: 2px 5px 10px #333333;
 }

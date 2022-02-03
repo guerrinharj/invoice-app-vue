@@ -14,7 +14,7 @@ const store = createStore({
       arrowdown: require('@/assets/icon-arrow-down.svg'),
       invoices: [],
       isMenuOpen: false,
-      invoicesStatus: ["Paid", "Pending", "Draft"]
+      invoicesStatus: ["Paid", "Pending", "All"]
     }
   },
   getters: {
