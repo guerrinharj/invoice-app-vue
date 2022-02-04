@@ -100,6 +100,9 @@ const store = createStore({
   },
       openTheForm(state) {
         state.isFormOn = !state.isFormOn
+      },
+      submitTheForm(state, payload) {
+        console.log(state, payload)
       }
   },
   actions: {
@@ -121,6 +124,10 @@ const store = createStore({
     },
     openingForm(context, payload) {
       context.commit('openTheForm', payload)
+    },
+    submitingForm(context, payload) {
+      context.commit('submitTheForm', payload);
+      context.commit('fetchTheInvoices', payload)
     }
 
   }
