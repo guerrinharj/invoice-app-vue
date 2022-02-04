@@ -9,6 +9,7 @@ const store = createStore({
       moonswitcher: require('@/assets/icon-moon.svg'),
       sunswitcher: require('@/assets/icon-sun.svg'),
       isSwitch: false,
+      isFormOn: false,
       avatar: require('@/assets/image-avatar.jpg'),
       plus: require('@/assets/icon-plus.svg'),
       arrowdown: require('@/assets/icon-arrow-down.svg'),
@@ -47,6 +48,9 @@ const store = createStore({
     },
     isMenuOpen(state) {
       return state.isMenuOpen
+    },
+    isFormOn(state) {
+      return state.isFormOn
     }
   },
   mutations: {

@@ -4,8 +4,9 @@
   <div class="sidebar_container">
     <the-sidebar> </the-sidebar>
   </div>
-  <div class="list_container">
-    <the-list> </the-list>
+  <div class="container">
+    <the-form v-if="isFormOn"> </the-form>
+    <the-list v-else> </the-list>
   </div>
 </div>
 </template>
@@ -14,16 +15,21 @@
 
 import TheSidebar from './components/TheSidebar.vue'
 import TheList from './components/TheList.vue'
+import TheForm from './components/TheForm.vue'
 
 export default {
   name: 'App',
   components: {
     TheSidebar,
-    TheList
+    TheList,
+    TheForm
   },
   computed: {
     isSwitch() {
       return this.$store.getters.isSwitch
+    },
+    isFormOn(){
+      return this.$store.getters.isFormOn
     }
   },
   mounted() {
@@ -71,7 +77,7 @@ body {
   width: 7%;
 }
 
-.list_container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
