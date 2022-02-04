@@ -97,7 +97,10 @@ const store = createStore({
           console.log(error)
         })
       }
-  }
+  },
+      openTheForm(state) {
+        state.isFormOn = !state.isFormOn
+      }
   },
   actions: {
 
@@ -115,6 +118,9 @@ const store = createStore({
 
     filteringList(context, payload) {
       context.commit('filterTheList', payload)
+    },
+    openingForm(context, payload) {
+      context.commit('openTheForm', payload)
     }
 
   }

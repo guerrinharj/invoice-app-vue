@@ -15,7 +15,7 @@
           </ul>
        </div>
       </div>
-      <div id="new-invoice"> <div> <img :src="plus"></div> <div>New Invoice</div> </div>
+      <div id="new-invoice" @click="openForm"> <div> <img :src="plus"></div> <div>New Invoice</div> </div>
     </div>
   </div>
 
@@ -68,6 +68,9 @@ import ListItem from './ListItem.vue'
           this.$store.dispatch('filteringList', {
             item: item
           })
+        },
+        openForm(){
+          this.$store.dispatch('openingForm')
         }
   }
 }

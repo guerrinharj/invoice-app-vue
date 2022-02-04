@@ -6,7 +6,7 @@
   </div>
   <div class="container">
     <the-form v-if="isFormOn"> </the-form>
-    <the-list v-else> </the-list>
+    <the-list> </the-list>
   </div>
 </div>
 </template>
