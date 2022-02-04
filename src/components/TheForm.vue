@@ -24,6 +24,14 @@
     <input name="invoice-client-country" type="text"/>
     <label for="invoice-client-country"> Country </label>
     <input name="invoice-client-country" type="text"/>
+    <label for="invoice-date"> Date </label>
+    <Datepicker v-model="date"></Datepicker>
+    <label for="invoice-payment-terms"> Terms </label>
+    <select name="terms">
+      <option v-for="term in paymentTerms" :key="term" :value="term"> {{ term }} </option>
+    </select>
+    <label for="invoice-description"> Description </label>
+    <input name="invoice-description" type="text"/>
     <button> Submit </button>
    </form>
 </section>
@@ -32,8 +40,17 @@
 
 <script>
 
-export default {
+import Datepicker from 'vue3-date-time-picker';
+import 'vue3-date-time-picker/dist/main.css'
 
+export default {
+  components: { Datepicker },
+  data() {
+            return {
+                date: null,
+                paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days']
+            };
+        },
   methods: {
      submitForm(form) {
      this.$store.dispatch('submitingForm', {
