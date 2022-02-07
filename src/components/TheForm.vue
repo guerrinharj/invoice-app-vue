@@ -56,14 +56,7 @@
 
     <h3> Item List </h3>
 
-    <div>
-      <label for="invoice-item-name"> Item Name </label>
-      <input name="invoice-item-name" type="text"/>
-      <label for="invoice-item-name"> Qty </label>
-      <input name="invoice-item-name" type="number"/>
-      <label for="invoice-item-name"> Price </label>
-      <input name="invoice-item-name" type="text"/>
-    </div>
+    <item-form> </item-form>
 
     <button> Submit </button>
    </form>
@@ -73,11 +66,12 @@
 
 <script>
 
+import ItemForm from './ItemForm.vue'
 import Datepicker from 'vue3-date-time-picker';
 import 'vue3-date-time-picker/dist/main.css'
 
 export default {
-  components: { Datepicker },
+  components: { Datepicker, ItemForm },
   data() {
             return {
                 date: null,
