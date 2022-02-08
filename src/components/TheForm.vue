@@ -56,7 +56,13 @@
 
     <h3> Item List </h3>
 
-    <item-form> </item-form>
+    <div @click="addItem()"> Add item </div>
+
+    <ul>
+      <li v-for="item in itemsList" :key="item">
+        <item-form> </item-form>
+      </li>
+    </ul>
 
     <button> Submit </button>
    </form>
@@ -75,14 +81,20 @@ export default {
   data() {
             return {
                 date: null,
-                paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days']
+                paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
+                itemsList: []
             };
         },
   methods: {
      submitForm(form) {
      this.$store.dispatch('submitingForm', {
         form: form
-      })}
+      })},
+      addItem() {
+        const newItem = 'item'
+
+        this.itemsList.push(newItem)
+      }
   }
 }
 
