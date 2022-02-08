@@ -86,6 +86,9 @@ export default {
   computed: {
   itemsList() {
     return this.$store.getters.itemsList
+  },
+  paymentTerms() {
+    return this.$store.getters.paymentTerms
   }
   },
 
