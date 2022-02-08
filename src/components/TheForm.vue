@@ -56,7 +56,7 @@
 
     <h3> Item List </h3>
 
-    <div @click="addItem()"> Add item </div>
+    <div @click="addItem"> Add item </div>
 
     <ul>
       <li v-for="item in itemsList" :key="item">
@@ -79,21 +79,23 @@ import 'vue3-date-time-picker/dist/main.css'
 export default {
   components: { Datepicker, ItemForm },
   data() {
-            return {
-                date: null,
-                paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
-                itemsList: []
-            };
-        },
+    return {
+      date: null,
+    };
+    },
+  computed: {
+  itemsList() {
+    return this.$store.getters.itemsList
+  }
+  },
+
   methods: {
      submitForm(form) {
      this.$store.dispatch('submitingForm', {
         form: form
       })},
       addItem() {
-        const newItem = 'item'
-
-        this.itemsList.push(newItem)
+      this.$store.dispatch('addingItems')
       }
   }
 }

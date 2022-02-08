@@ -15,7 +15,9 @@ const store = createStore({
       arrowdown: require('@/assets/icon-arrow-down.svg'),
       invoices: [],
       isMenuOpen: false,
-      invoicesStatus: ["Paid", "Pending", "All"]
+      invoicesStatus: ["Paid", "Pending", "All"],
+      paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
+      itemsList: []
     }
   },
   getters: {
@@ -51,6 +53,12 @@ const store = createStore({
     },
     isFormOn(state) {
       return state.isFormOn
+    },
+    paymentTerms(state) {
+      return state.paymentTerms
+    },
+    itemsList(state) {
+      return state.itemsList
     }
   },
   mutations: {
@@ -103,6 +111,10 @@ const store = createStore({
       },
       submitTheForm(state, payload) {
         console.log(state, payload)
+      },
+      addTheItems(state) {
+        const newItem = 'item'
+        state.itemsList.push(newItem)
       }
   },
   actions: {
@@ -128,6 +140,9 @@ const store = createStore({
     submitingForm(context, payload) {
       context.commit('submitTheForm', payload);
       context.commit('fetchTheInvoices', payload)
+    },
+    addingItems(context, payload) {
+      context.commit('addTheItems', payload)
     }
 
   }
