@@ -32,6 +32,9 @@ export default {
       return this.$store.getters.isFormOn
     }
   },
+  beforeCreate() {
+    return this.$store.getters.loading
+  },
   mounted() {
     return this.$store.dispatch('fetchingInvoices')
   },

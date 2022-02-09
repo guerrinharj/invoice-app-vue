@@ -5,6 +5,7 @@ import { createStore } from 'vuex';
 const store = createStore({
   state() {
     return {
+      loading: 'Loading...',
       logo: require('@/assets/logo.svg'),
       moonswitcher: require('@/assets/icon-moon.svg'),
       sunswitcher: require('@/assets/icon-sun.svg'),
@@ -22,6 +23,9 @@ const store = createStore({
     }
   },
   getters: {
+    loading(state) {
+      return state.loading
+    },
     logo(state) {
       return state.logo
     },
