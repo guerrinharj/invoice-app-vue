@@ -28,7 +28,6 @@
     :value="invoice.value"
     :paid="invoice.paid"
     :id="invoice.id"
-    :expanded="false"
     >
     </list-item>
     </li></a>
