@@ -19,8 +19,7 @@ const store = createStore({
       invoicesStatus: ["Paid", "Pending", "All"],
       paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
       itemsCount: 1,
-      itemsList: [],
-      expandedInvoices: []
+      itemsList: []
     }
   },
   getters: {
@@ -65,9 +64,6 @@ const store = createStore({
     },
     itemsList(state) {
       return state.itemsList
-    },
-    expandedInvoices(state) {
-      return state.expandedInvoices
     }
 
   },
@@ -124,11 +120,27 @@ const store = createStore({
         state.itemsList.push(newItem)
       },
       expandTheItem(state, payload) {
-       state.invoices.forEach((invoice) => {
-         if (invoice.id == payload.item.id) {
-          console.log(payload)
-         }
-       })
+        console.log(state, payload.invoice)
+
+
+        const expandedAreas = document.querySelectorAll('.expanded-area')
+        const listItems = document.querySelectorAll('.item-wrapper')
+
+        expandedAreas.forEach(area => {
+          area.classList.add('expanded-area-none')
+          listItems.forEach(item => {
+            console.log(item)
+            if (item.id == payload.invoice.id) {
+              const expandedArea = item.querySelector('.expanded-area')
+              expandedArea.classList.remove('expanded-area-none')
+            }
+          })
+        })
+
+
+
+
+
       }
   },
   actions: {

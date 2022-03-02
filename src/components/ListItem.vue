@@ -1,14 +1,16 @@
 <template>
-  <div class="list-item" :class="isSwitch ? 'dark-bg dark-item' : 'light-bg light-item' ">
-    <div class="li-code"> <span class="hash">#</span>{{ code }} </div>
-    <div class="li-payment"> <span class="li-color">Due {{ payment }}</span> </div>
-    <div class="li-name"> <span class="li-color">{{ name }}</span> </div>
-    <div class="li-value"> £{{ value }} </div>
-    <div class="li-status" :class="paid ? 'li-paid' : 'li-pending'"> {{ paid ? "●  Paid" : "●  Pending" }} </div>
-  </div>
+  <div class="item-wrapper" :id="id">
+    <div class="list-item"  :class="isSwitch ? 'dark-bg dark-item' : 'light-bg light-item' ">
+      <div class="li-code"> <span class="hash">#</span>{{ code }} </div>
+      <div class="li-payment"> <span class="li-color">Due {{ payment }}</span> </div>
+      <div class="li-name"> <span class="li-color">{{ name }}</span> </div>
+      <div class="li-value"> £{{ value }} </div>
+      <div class="li-status" :class="paid ? 'li-paid' : 'li-pending'"> {{ paid ? "●  Paid" : "●  Pending" }} </div>
+    </div>
 
-  <div>
-    EXPANDED
+    <div class="expanded-area expanded-area-none">
+      EXPANDED
+    </div>
   </div>
 </template>
 
@@ -16,7 +18,7 @@
 
 export default {
 
-  props: ["code", "name", "payment", "value", "paid"],
+  props: ["code", "name", "payment", "value", "paid", "id"],
 
   computed: {
     isSwitch() {
@@ -26,7 +28,6 @@ export default {
       return this.$store.getters.expandedInvoices
     }
   }
-
 }
 
 </script>
@@ -105,6 +106,12 @@ export default {
     background-color: #FFF9F2;
     color:  #FF8F00
   }
+
+  .expanded-area-none {
+    display: none;
+  }
+
+
 
 
 </style>

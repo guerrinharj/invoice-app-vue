@@ -27,6 +27,8 @@
     :payment="invoice.payment_date"
     :value="invoice.value"
     :paid="invoice.paid"
+    :id="invoice.id"
+    :expanded="false"
     >
     </list-item>
     </li></a>
@@ -73,9 +75,9 @@ import ListItem from './ListItem.vue'
         openForm(){
           this.$store.dispatch('openingForm')
         },
-        expandItem(item){
+        expandItem(invoice){
           this.$store.dispatch('expandingItem', {
-            item: item
+            invoice: invoice
           })
         }
   }
