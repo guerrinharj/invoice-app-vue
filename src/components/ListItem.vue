@@ -6,6 +6,10 @@
     <div class="li-value"> £{{ value }} </div>
     <div class="li-status" :class="paid ? 'li-paid' : 'li-pending'"> {{ paid ? "●  Paid" : "●  Pending" }} </div>
   </div>
+
+  <div>
+    EXPANDED
+  </div>
 </template>
 
 <script>
@@ -17,6 +21,9 @@ export default {
   computed: {
     isSwitch() {
       return this.$store.getters.isSwitch
+    },
+    expandedInvoices() {
+      return this.$store.getters.expandedInvoices
     }
   }
 

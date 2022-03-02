@@ -20,7 +20,7 @@
   </div>
 
   <ul class="invoice-list">
-    <a><li v-for="invoice in invoices" :key="invoice"  @click="expandItem(item)">
+    <a><li v-for="invoice in invoices" :key="invoice"  @click="expandItem(invoice)">
     <list-item
     :name="invoice.name"
     :code="invoice.code"

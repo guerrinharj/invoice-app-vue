@@ -19,7 +19,8 @@ const store = createStore({
       invoicesStatus: ["Paid", "Pending", "All"],
       paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
       itemsCount: 1,
-      itemsList: []
+      itemsList: [],
+      expandedInvoices: []
     }
   },
   getters: {
@@ -64,7 +65,11 @@ const store = createStore({
     },
     itemsList(state) {
       return state.itemsList
+    },
+    expandedInvoices(state) {
+      return state.expandedInvoices
     }
+
   },
   mutations: {
     fetchTheInvoices(state) {
@@ -118,8 +123,12 @@ const store = createStore({
         const newItem = `item ${state.itemsCount}`
         state.itemsList.push(newItem)
       },
-      expandTheItem(payload) {
-        console.log(payload)
+      expandTheItem(state, payload) {
+       state.invoices.forEach((invoice) => {
+         if (invoice.id == payload.item.id) {
+          console.log(payload)
+         }
+       })
       }
   },
   actions: {
