@@ -20,13 +20,14 @@
   </div>
 
   <ul class="invoice-list">
-    <a><li v-for="invoice in invoices" :key="invoice">
+    <a><li v-for="invoice in invoices" :key="invoice"  @click="expandItem(item)">
     <list-item
     :name="invoice.name"
     :code="invoice.code"
     :payment="invoice.payment_date"
     :value="invoice.value"
-    :paid="invoice.paid">
+    :paid="invoice.paid"
+    >
     </list-item>
     </li></a>
   </ul>
@@ -71,6 +72,11 @@ import ListItem from './ListItem.vue'
         },
         openForm(){
           this.$store.dispatch('openingForm')
+        },
+        expandItem(item){
+          this.$store.dispatch('expandingItem', {
+            item: item
+          })
         }
   }
 }

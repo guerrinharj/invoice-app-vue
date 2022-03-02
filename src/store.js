@@ -70,7 +70,6 @@ const store = createStore({
     fetchTheInvoices(state) {
       axios.get("https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices").then(res => {
         state.invoices = res.data
-        console.log(state.invoices)
       }).catch(error => {
         console.log(error)
       })
@@ -91,21 +90,18 @@ const store = createStore({
       if (payload.item == "Paid") {
       axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=true`).then(res => {
         state.invoices = res.data
-        console.log(state.invoices)
       }).catch(error => {
         console.log(error)
       })
       } else if (payload.item == "Pending") {
         axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=false`).then(res => {
           state.invoices = res.data
-          console.log(state.invoices)
         }).catch(error => {
           console.log(error)
         })
       } else {
         axios.get(`https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices?paid=nil`).then(res => {
           state.invoices = res.data
-          console.log(state.invoices)
         }).catch(error => {
           console.log(error)
         })
@@ -121,6 +117,9 @@ const store = createStore({
         state.itemsCount++
         const newItem = `item ${state.itemsCount}`
         state.itemsList.push(newItem)
+      },
+      expandTheItem(payload) {
+        console.log(payload)
       }
   },
   actions: {
@@ -149,6 +148,9 @@ const store = createStore({
     },
     addingItems(context, payload) {
       context.commit('addTheItems', payload)
+    },
+    expandingItem(context, payload) {
+      context.commit('expandTheItem', payload)
     }
 
   }
