@@ -112,7 +112,31 @@ const store = createStore({
         state.isFormOn = !state.isFormOn
       },
       submitTheForm(state, payload) {
-        console.log(state, payload)
+        console.log(state)
+
+        axios.post('/https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices', {
+          name: payload.form.target[3].value,
+          email: payload.form.target[4].value,
+          value: "teste",
+          code: "teste",
+          invoice_date: "teste",
+          payment_date: payload.form.target[9].value,
+          paid: false,
+          client_address: payload.form.target[0].value,
+          sender_address: "teste",
+          items: "teste",
+          description: "teste",
+          terms: "teste",
+        })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+
+
       },
       addTheItems(state) {
         state.itemsCount++
