@@ -112,24 +112,40 @@ const store = createStore({
         state.isFormOn = !state.isFormOn
       },
       submitTheForm(state, payload) {
-        console.log(state)
+
+        const nameSubmitted = payload.form.target[3].value
+        const emailSubmitted = payload.form.target[4].value
+        const valueSubmitted = 2000
+        const paymentSubmitted = payload.form.target[9].value
+        const clientStreetSubmitted = payload.form.target[5].value
+        const clientCitySubmitted = payload.form.target[6].value
+        const clientPostSubmitted = payload.form.target[7].value
+        const clientCountrySubmitted = payload.form.target[8].value
+        const senderStreetSubmitted = payload.form.target[0].value
+        const senderCitySubmitted = payload.form.target[1].value
+        const senderPostSubmitted = payload.form.target[2].value
+        const descriptionSubmitted = payload.form.target[11].value
+        const termsSubmitted = payload.form.target[10].value
+        const itemsSubmitted = state.itemsList
+
 
         axios.post('https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices', {
-          name: payload.form.target[3].value,
-          email: payload.form.target[4].value,
-          value: 2000,
-          payment_date: payload.form.target[9].value,
-          client_address: { street: payload.form.target[5].value, city: payload.form.target[6].value, postCode: payload.form.target[7].value, country: payload.form.target[8].value},
-          sender_address: { street: payload.form.target[0].value, city: payload.form.target[1].value, postCode: payload.form.target[2].value  },
-          items: state.itemsList,
-          description: payload.form.target[11].value,
-          terms: payload.form.target[10].value,
+          name: nameSubmitted,
+          email: emailSubmitted,
+          value: valueSubmitted,
+          payment_date: paymentSubmitted,
+          client_address: { street: clientStreetSubmitted, city: clientCitySubmitted, postCode: clientPostSubmitted, country: clientCountrySubmitted},
+          sender_address: { street: senderStreetSubmitted, city: senderCitySubmitted, postCode: senderPostSubmitted  },
+          items: itemsSubmitted,
+          description: descriptionSubmitted,
+          terms: termsSubmitted,
+          paid: false
         })
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
-            console.log(error);
+            console.log("ERROU FILHO", error);
           });
 
 
