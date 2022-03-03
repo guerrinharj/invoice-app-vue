@@ -114,19 +114,16 @@ const store = createStore({
       submitTheForm(state, payload) {
         console.log(state)
 
-        axios.post('/https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices', {
+        axios.post('https://gabrielguerra-invoices-api.herokuapp.com/api/v1/invoices', {
           name: payload.form.target[3].value,
           email: payload.form.target[4].value,
-          value: "teste",
-          code: "teste",
-          invoice_date: "teste",
+          value: 2000,
           payment_date: payload.form.target[9].value,
-          paid: false,
-          client_address: payload.form.target[0].value,
-          sender_address: "teste",
-          items: "teste",
-          description: "teste",
-          terms: "teste",
+          client_address: { street: payload.form.target[5].value, city: payload.form.target[6].value, postCode: payload.form.target[7].value, country: payload.form.target[8].value},
+          sender_address: { street: payload.form.target[0].value, city: payload.form.target[1].value, postCode: payload.form.target[2].value  },
+          items: state.itemsList,
+          description: payload.form.target[11].value,
+          terms: payload.form.target[10].value,
         })
           .then(function (response) {
             console.log(response);
