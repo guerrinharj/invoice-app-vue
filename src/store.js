@@ -18,7 +18,7 @@ const store = createStore({
       isMenuOpen: false,
       invoicesStatus: ["Paid", "Pending", "All"],
       paymentTerms: ['Net 1 Day', 'Net 7 Days', 'Net 15 Days', 'Net 30 Days'],
-      itemsCount: 1,
+      itemsCount: 0,
       itemsList: []
     }
   },
@@ -64,6 +64,9 @@ const store = createStore({
     },
     itemsList(state) {
       return state.itemsList
+    },
+    itemsCount(state) {
+      return state.itemsCount
     }
 
   },

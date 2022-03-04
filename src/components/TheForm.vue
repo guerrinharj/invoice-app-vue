@@ -55,8 +55,10 @@
     </div>
 
     <h3> Item List </h3>
+    <h4> There are {{ itemsCount == 0 ? 'no' : itemsCount }} items </h4>
 
     <div @click="addItem"> Add item </div>
+
 
     <ul>
       <li v-for="item in itemsList" :key="item">
@@ -86,6 +88,9 @@ export default {
   computed: {
   itemsList() {
     return this.$store.getters.itemsList
+  },
+  itemsCount() {
+    return this.$store.getters.itemsCount
   },
   paymentTerms() {
     return this.$store.getters.paymentTerms
