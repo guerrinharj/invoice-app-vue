@@ -1,28 +1,27 @@
 <template>
 
+<a href="/"> Main </a>
+
 <div class="page" :class="isSwitch ? 'dark-bg' : 'light-bg' ">
   <div class="sidebar_container">
     <the-sidebar> </the-sidebar>
   </div>
   <div class="container">
-    <the-form v-if="isFormOn"> </the-form>
-    <the-list> </the-list>
+    <the-about></the-about>
   </div>
 </div>
 </template>
 
 <script>
 
-import TheSidebar from './components/TheSidebar.vue'
-import TheList from './components/TheList.vue'
-import TheForm from './components/TheForm.vue'
+import TheSidebar from '../../components/TheSidebar.vue'
+import TheAbout from '../../components/TheAbout.vue'
 
 export default {
   name: 'App',
   components: {
     TheSidebar,
-    TheList,
-    TheForm
+    TheAbout
   },
   computed: {
     isSwitch() {
